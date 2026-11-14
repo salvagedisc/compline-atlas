@@ -1,0 +1,14 @@
+version = "3.1.2+1.21-${rootProject.port_suffix}"
+
+neoForge {
+    mods {
+        antique_atlas { sourceSet(sourceSets.main) }
+        surveyor { sourceSet(project(':surveyor').sourceSets.main) }
+    }
+}
+
+dependencies {
+    implementation project(':surveyor')
+    // Bundled by Surveyor.
+    implementation "folk.sisby:kaleido-config:${rootProject.kaleido_version}"
+}

@@ -1,0 +1,37 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "LGPL-3.0-or-later"
+issueTrackerURL = "https://github.com/salvagedisc/tilth-atlas/issues"
+
+[[mods]]
+modId = "antique_atlas"
+version = "${version}"
+displayName = "Antique Atlas 4 (NeoForge port)"
+description = '''A hand-drawn clientside world map, with map sharing, structure discovery, and more! Unofficial NeoForge port of Antique Atlas 4 by Sisby folk.'''
+authors = "Sisby folk, after Hunternif, Kenkron, asie and tyra314."
+displayURL = "https://github.com/salvagedisc/tilth-atlas"
+logoFile = "assets/antique_atlas/icon.png"
+
+[[mixins]]
+config = "antique_atlas.mixins.json"
+
+[[dependencies.antique_atlas]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.antique_atlas]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${mc}]"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.antique_atlas]]
+modId = "surveyor"
+type = "required"
+versionRange = "*"
+ordering = "AFTER"
+side = "CLIENT"
