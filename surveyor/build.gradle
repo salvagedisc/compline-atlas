@@ -1,0 +1,11 @@
+version = "1.2.4+1.21-${rootProject.port_suffix}"
+
+neoForge {
+    mods { surveyor { sourceSet(sourceSets.main) } }
+    accessTransformers.from('src/main/resources/META-INF/accesstransformer.cfg')
+}
+
+dependencies {
+    implementation "folk.sisby:kaleido-config:${rootProject.kaleido_version}"
+    jarJar("folk.sisby:kaleido-config") { version { strictly "[${rootProject.kaleido_version}]"; prefer rootProject.kaleido_version } }
+}

@@ -1,0 +1,33 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "LGPL-3.0-or-later"
+issueTrackerURL = "https://github.com/salvagedisc/tilth-atlas/issues"
+
+[[mods]]
+modId = "surveyor"
+version = "${version}"
+displayName = "Surveyor Map Framework (NeoForge port)"
+description = '''Unified API, networking, and save data for map mods. Unofficial NeoForge port of Surveyor by Sisby folk.'''
+authors = "Sisby folk. Contributions by Ampflower, falkreon, jaskarth, Garden System."
+displayURL = "https://github.com/salvagedisc/tilth-atlas"
+logoFile = "assets/surveyor/icon.png"
+
+[[mixins]]
+config = "surveyor.mixins.json"
+
+[[accessTransformers]]
+file = "META-INF/accesstransformer.cfg"
+
+[[dependencies.surveyor]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.surveyor]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${mc}]"
+ordering = "NONE"
+side = "BOTH"

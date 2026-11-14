@@ -1,0 +1,47 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.148' apply false
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'net.neoforged.moddev'
+
+    java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+    repositories {
+        maven { url = 'https://repo.sleeping.town/' }
+        exclusiveContent {
+            forRepository { maven { name = 'Modrinth'; url = 'https://api.modrinth.com/maven' } }
+            filter { includeGroup 'maven.modrinth' }
+        }
+    }
+
+    neoForge {
+        version = rootProject.neo_version
+        parchment {
+            mappingsVersion = rootProject.parchment_mappings_version
+            minecraftVersion = rootProject.parchment_minecraft_version
+        }
+    }
+
+    base.archivesName = project.name
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+
+    jar {
+        from(projectDir) {
+            include 'LICENSE', 'CREDITS'
+            rename { "${it}_${base.archivesName.get()}" }
+        }
+    }
+
+    afterEvaluate {
+        processResources {
+            def props = [version: project.version.toString(), mc: rootProject.minecraft_version]
+            inputs.properties props
+            filesMatching('META-INF/neoforge.mods.toml') { expand props }
+        }
+    }
+}
