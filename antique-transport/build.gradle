@@ -1,0 +1,54 @@
+version = "1.3.0+1.21.1-${rootProject.port_suffix}"
+
+neoForge {
+    mods {
+        antique_transport { sourceSet(sourceSets.main) }
+    }
+}
+
+repositories {
+    exclusiveContent {
+        forRepository { maven { name = 'RyanHCode'; url = 'https://maven.ryanhcode.dev/releases' } }
+        filter { includeGroup 'dev.ryanhcode.sable-companion' }
+    }
+}
+
+// Modrinth version ids of the mods this one integrates with. They are only compiled against.
+def CREATE = 'maven.modrinth:create:UjX6dr61'
+def SABLE = 'maven.modrinth:sable:fg9dTRz9'
+def AERONAUTICS = 'maven.modrinth:create-aeronautics:44pLdPGg'
+def SABLE_COMPANION = 'dev.ryanhcode.sable-companion:sable-companion-common-1.21.1'
+
+configurations {
+    bundles { canBeConsumed = false; canBeResolved = true; transitive = false }
+}
+
+// Those mods ship their libraries (Ponder, Flywheel, Simulated...) as nested jars: unpack them for the compile classpath.
+def bundleFiles = configurations.bundles
+def nestedLibs = tasks.register('nestedLibs', Sync) {
+    from({ bundleFiles.collect { zipTree(it) } }) {
+        include 'META-INF/jarjar/*.jar'
+        exclude '**/sable-companion-*.jar'
+        eachFile { path = name }
+    }
+    includeEmptyDirs = false
+    into layout.buildDirectory.dir('nested-libs')
+}
+
+dependencies {
+    implementation project(':surveyor')
+    implementation project(':antique-atlas')
+    // Bundled by Surveyor.
+    implementation "folk.sisby:kaleido-config:${rootProject.kaleido_version}"
+
+    // Bundled as upstream does, so that the ship code loads without Sable installed.
+    implementation "${SABLE_COMPANION}:${rootProject.sable_companion_version}"
+    jarJar(SABLE_COMPANION) { version { strictly "[${rootProject.sable_companion_version},)"; prefer rootProject.sable_companion_version } }
+
+    compileOnly CREATE
+    compileOnly SABLE
+    bundles CREATE
+    bundles SABLE
+    bundles AERONAUTICS
+    compileOnly files(nestedLibs).asFileTree
+}

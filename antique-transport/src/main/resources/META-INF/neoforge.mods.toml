@@ -1,0 +1,44 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "LGPL-3.0-or-later"
+issueTrackerURL = "https://github.com/salvagedisc/tilth-atlas/issues"
+
+[[mods]]
+modId = "antique_transport"
+version = "${version}"
+displayName = "Antique Transport (NeoForge port)"
+description = '''Adds Create trains, tracks, stations and Sable ships to Antique Atlas. Unofficial NeoForge port of Antique Transport by Mariz.'''
+authors = "Mariz."
+displayURL = "https://github.com/salvagedisc/tilth-atlas"
+logoFile = "assets/antique_transport/icon.png"
+
+[[mixins]]
+config = "antique_transport.mixins.json"
+
+[[dependencies.antique_transport]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.antique_transport]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${mc}]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.antique_transport]]
+modId = "surveyor"
+type = "required"
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.antique_transport]]
+modId = "antique_atlas"
+type = "required"
+versionRange = "*"
+ordering = "AFTER"
+side = "CLIENT"
