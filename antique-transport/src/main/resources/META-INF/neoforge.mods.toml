@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 license = "LGPL-3.0-or-later"
-issueTrackerURL = "https://github.com/salvagedisc/tilth-atlas/issues"
+issueTrackerURL = "https://github.com/salvagedisc/fallow-atlas/issues"
 
 [[mods]]
 modId = "antique_transport"
@@ -9,7 +9,7 @@ version = "${version}"
 displayName = "Antique Transport (NeoForge port)"
 description = '''Adds Create trains, tracks, stations and Sable ships to Antique Atlas. Unofficial NeoForge port of Antique Transport by Mariz.'''
 authors = "Mariz."
-displayURL = "https://github.com/salvagedisc/tilth-atlas"
+displayURL = "https://github.com/salvagedisc/fallow-atlas"
 logoFile = "assets/antique_transport/icon.png"
 
 [[mixins]]

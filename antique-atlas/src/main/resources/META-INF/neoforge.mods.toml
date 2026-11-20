@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 license = "LGPL-3.0-or-later"
-issueTrackerURL = "https://github.com/salvagedisc/tilth-atlas/issues"
+issueTrackerURL = "https://github.com/salvagedisc/fallow-atlas/issues"
 
 [[mods]]
 modId = "antique_atlas"
@@ -9,7 +9,7 @@ version = "${version}"
 displayName = "Antique Atlas 4 (NeoForge port)"
 description = '''A hand-drawn clientside world map, with map sharing, structure discovery, and more! Unofficial NeoForge port of Antique Atlas 4 by Sisby folk.'''
 authors = "Sisby folk, after Hunternif, Kenkron, asie and tyra314."
-displayURL = "https://github.com/salvagedisc/tilth-atlas"
+displayURL = "https://github.com/salvagedisc/fallow-atlas"
 logoFile = "assets/antique_atlas/icon.png"
 
 [[mixins]]

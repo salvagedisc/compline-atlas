@@ -1,6 +1,6 @@
-# Tilth Atlas
+# Fallow Atlas
 
-Unofficial NeoForge 1.21.1 ports of three Fabric mods, so that they run natively instead of through Sinytra Connector and Forgified Fabric API:
+Unofficial NeoForge 1.21.1 ports of three Fabric mods, so that they run natively instead of through Sinytra Connector and Forgified Fabric API. They were made for the [Fallow](https://github.com/salvagedisc/fallow) modpack, which ships the built jars, but they do not depend on it and work in any NeoForge 1.21.1 instance.
 
 | Mod | What it does | Upstream | Ported from |
 |---|---|---|---|
@@ -8,7 +8,9 @@ Unofficial NeoForge 1.21.1 ports of three Fabric mods, so that they run natively
 | Antique Atlas 4 | The hand-drawn atlas itself, client side | [sleepingdragoninn/antique-atlas](https://github.com/sleepingdragoninn/antique-atlas) | 3.1.2+1.21 (branch `1.21`, commit `1821a06`) |
 | Antique Transport | Create tracks, trains and stations, and Sable ships, on the atlas | [MarizPOG/antique_transport](https://github.com/MarizPOG/antique_transport) | 1.3.0 (commit `00f0251`) |
 
-**The ports are not made, endorsed or supported by the original authors.** Please report problems [here](https://github.com/salvagedisc/tilth-atlas/issues), never upstream.
+**The ports are not made, endorsed or supported by the original authors.** Please report problems [here](https://github.com/salvagedisc/fallow-atlas/issues), never upstream.
+
+There are no separate releases: the current jars are the ones committed in Fallow's [`pack/mods/`](https://github.com/salvagedisc/fallow/tree/main/pack/mods), or build them yourself (see [Building](#building)).
 
 ## Requirements
 
